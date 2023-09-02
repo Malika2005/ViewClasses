@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Info</title>
+</head>
+<body>
+    <p>Title: {{ book.title }}</p>
+    <p>Author: {{ book.author }}</p>
+    <p>Publishing Year: {{ book.publish_year }}</p>
+    Genre:
+    {% for genre in book.genre.all %}
+        {{ genre }};
+    {% endfor %}
+    <p>Rating: {{ book.rating }}</p>
+    <p>Amount of views: {{ book.amount_of_views }}</p>
+    <p><a href="{% url 'update_book' book.slug %}">Update</a></p>
+    <p><a href="{% url 'delete_book' book.slug %}">Delete</a></p>
+    <p><a href="{% url 'book_list' %}">Go Back</a></p>
+</body>
+</html>

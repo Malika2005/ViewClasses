@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Author</title>
+</head>
+<body>
+    <h1>Add Author</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Create">
+        <a href="{% url 'add_genre' %}">Add Genre</a>
+        <a href="{% url 'add_book' %}">Cancel</a>
+    </form>
+</body>
+</html>

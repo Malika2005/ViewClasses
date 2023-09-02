@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+    <h3><a href="{% url 'start_page' %}">Go back</a></h3>
+    {% for book in books %}
+    <div style="width: 300px; margin: 0 auto; margin-bottom: 20px; text-align: center; border: 2px solid red;">
+            <p>{{ book.title }}</p>
+            <p>{{ book.author }}</p>
+            <p>{{ book.amount_of_views }}</p>
+            <p><a href="{% url 'book_info' book.slug %}">More info...</a></p>
+            <p><a href="{% url 'update_book' book.slug %}">Update</a></p>
+            <p><a href="{% url 'delete_book' book.slug %}">Delete</a></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
